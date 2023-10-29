@@ -1,5 +1,7 @@
 from django.db import models
 
+from users.models import User
+
 
 class Course(models.Model):
     title = models.CharField(max_length=100, verbose_name='Название курса')
@@ -28,3 +30,18 @@ class Lesson(models.Model):
         verbose_name = 'Урок'
         verbose_name_plural = 'Уроки'
 
+
+class Payment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_payments')
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='course_payments')
+    payment_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата платежа')
+    payment_sum = models.PositiveIntegerField(verbose_name='Сумма платежа')
+    payment_method = models.CharField(choices=[('1', 'Наличные'), ('2', 'Перевод')], verbose_name='Метод платежа')
+
+    def __str__(self):
+        return f"{self.user}: {self.course} - {self.payment_date}"
+
+    class Meta:
+        verbose_name = 'Платеж'
+        verbose_name_plural = 'Платежи'
+        ordering = ('-payment_date',)
