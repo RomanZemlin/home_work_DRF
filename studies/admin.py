@@ -1,7 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
-
 from studies.models import Course, Lesson, Payment, Subscription
 from users.models import User
 

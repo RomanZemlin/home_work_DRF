@@ -2,8 +2,8 @@ from django.urls import path
 from rest_framework import routers
 
 from studies.views import CourseViewSet, LessonCreateAPIView, LessonListAPIView, LessonRetrieveAPIView, \
-    LessonUpdateAPIView, LessonDestroyAPIView, PaymentListAPIView, SubscriptionCreateAPIView, SubscriptionListAPIView, \
-    SubscriptionDestroyAPIView
+    LessonUpdateAPIView, LessonDestroyAPIView, PaymentListAPIView, SubscriptionDestroyAPIView, SubscriptionListAPIView, \
+    SubscriptionCreateAPIView
 
 urlpatterns = [
     # lessons

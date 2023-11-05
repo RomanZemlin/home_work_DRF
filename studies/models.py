@@ -5,8 +5,9 @@ from users.models import User
 
 class Course(models.Model):
     title = models.CharField(max_length=100, verbose_name='Название курса')
-    description = models.TextField(verbose_name='Описание курса', blank=True, null=True)
-    image = models.ImageField(upload_to='courses/', verbose_name='Изображение курса', blank=True, null=True)
+    description = models.TextField(verbose_name='Описание курса', null=True, blank=True)
+    image = models.ImageField(upload_to='courses/', verbose_name='Изображение курса', null=True, blank=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.title
@@ -19,9 +20,10 @@ class Course(models.Model):
 class Lesson(models.Model):
     title = models.CharField(max_length=100, verbose_name='Название урока')
     description = models.TextField(verbose_name='Описание урока')
-    image = models.ImageField(upload_to='courses/lessons/', verbose_name='Изображение урока', blank=True, null=True)
-    link = models.URLField(verbose_name='Ссылка на видео', blank=True, null=True)
+    image = models.ImageField(upload_to='courses/lessons/', verbose_name='Изображение урока', null=True, blank=True)
+    link = models.URLField(verbose_name='Ссылка на видео', null=True, blank=True)
     course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='lessons')
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return f"{self.course} - {self.title}"

@@ -1,0 +1,35 @@
+[
+  {
+    "model": "education.payment",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "course": 1,
+      "payment_date": "2023-11-5T03:42:40.892Z",
+      "payment_sum": 1000,
+      "payment_method": "1"
+    }
+  },
+  {
+    "model": "education.payment",
+    "pk": 2,
+    "fields": {
+      "user": 1,
+      "course": 1,
+      "payment_date": "2023-1-4T04:34:21.931Z",
+      "payment_sum": 2000,
+      "payment_method": "1"
+    }
+  },
+  {
+    "model": "education.payment",
+    "pk": 3,
+    "fields": {
+      "user": 2,
+      "course": 1,
+      "payment_date": "2023-11-3T05:50:55.901Z",
+      "payment_sum": 2000,
+      "payment_method": "2"
+    }
+  }
+]
