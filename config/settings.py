@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'drf_yasg',
     'rest_framework',
     'studies',
     'users',
@@ -167,3 +168,15 @@ EMAIL_HOST_PASSWORD = 'oaaxuwdipoilnxzt'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 SERVER_EMAIL = EMAIL_HOST_USER
 EMAIL_ADMIN = EMAIL_HOST_USER
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+        },
+    },
+}
+
+STRIPE_SECRET_KEY = 'sk_test_51OAv8xGrzGnAKpS7POv2q5BYOVrvMzIg3QRZIj7rfRitG1bMd1AozzXb4gfKj74xXmO1FDm2flNxmlDc0O2nVhTP00N5kJJl7C'
