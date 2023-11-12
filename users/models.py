@@ -22,6 +22,7 @@ class User(AbstractUser):
     phone = models.CharField(max_length=25, blank=True, null=True)
     city = models.CharField(max_length=100, blank=True, null=True)
     avatar = models.ImageField(upload_to="avatars", blank=True, null=True)
+    last_token_request = models.DateTimeField(blank=True, null=True)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []

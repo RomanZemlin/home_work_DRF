@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'users',
     'django_filters',
     'rest_framework_simplejwt',
+    'redis',
+    'django_celery_beat'
 ]
 
 MIDDLEWARE = [
@@ -180,3 +182,12 @@ SWAGGER_SETTINGS = {
 }
 
 STRIPE_SECRET_KEY = 'sk_test_51OAv8xGrzGnAKpS7POv2q5BYOVrvMzIg3QRZIj7rfRitG1bMd1AozzXb4gfKj74xXmO1FDm2flNxmlDc0O2nVhTP00N5kJJl7C'
+
+CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_BEAT_SCHEDULE = {
+    'task-name': {
+        'task': 'education.tasks.check_user_last_login',
+        'schedule': timedelta(days=1),
+    },
+}
